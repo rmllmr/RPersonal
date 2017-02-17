@@ -16,11 +16,9 @@ class BasePersonal {
         this.surname = SN;
         this.age = A;
         this.birthday = stringToDate(BD);
-
-
     }
 
-    public Date stringToDate(String strBD) throws ParseException {
+    public Date stringToDate(String strBD) {
         SimpleDateFormat strDate = new SimpleDateFormat();
         strDate.applyPattern("dd.MM.yyyy");
         try {
@@ -28,18 +26,22 @@ class BasePersonal {
             return docDate;
         } catch (ParseException e) {
             e.printStackTrace();
-            return strDate.parse("01.01.2000");
+            try {
+                return strDate.parse("01.01.2000");
+            } catch (ParseException e1) {
+                e1.printStackTrace();
+            }
         }
-
-
-
+        return null;
     }
 }
 
 public class RPersonal{
     public static void main(String[] args){
-        Map<Integer, BasePersonal> baseRPersonal= new HashMap<Integer, BasePersonal>();
-        baseRPersonal.put(1, new BasePersonal("First", "First", 20, "01.02.1980"));
-
+        Map<BasePersonal, Integer> baseRPersonal= new HashMap<BasePersonal, Integer>();
+        baseRPersonal.put(new BasePersonal("First", "First", 20, "01.02.1980"), 0452);
+        baseRPersonal.put(new BasePersonal("Second", "Second", 25, "01.05.1985"), 0245);
+        baseRPersonal.
+        baseRPersonal.get(new )
     }
 }
